@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@500&family=Plus+Jakarta+Sans:wght@500&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+nav {
+  background: rgba(49, 49, 60, 0.5);
+  backdrop-filter: blur(15px);
+  position: fixed;
+  top: 2%;
+  right: 2%;
+  bottom: 2%;
+  left: 2%;
+  height: 80px;
+  border-radius: 30px;
+  border: 1px solid rgba(78, 78, 87, 0.5);
+  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+}
+
+label.logo {
+  color: #fff;
+  font-size: 35px;
+  font-family: "Montserrat", sans-serif;
+  line-height: 75px;
+  padding: 0 5%;
+}
+
+nav ul {
+  float: right;
+  margin-right: 5%;
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  font-size: 17px;
+  font-family: "Montserrat", sans-serif;
+  padding: 7px 13px;
+  border-radius: 3px;
+}
+
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 5px;
+  background-color: #567472;
+  visibility: hidden;
+  transition: 0.3s ease-in-out;
+  border-radius: 50px;
+}
+
+nav a.active::after,
+nav a:hover::after {
+  width: 50%;
+  visibility: visible;
+}
+.checkbtn {
+  font-size: 30px;
+  transform: scale(1.4);
+  float: left;
+  line-height: 80px;
+  margin-left: 30px;
+  cursor: pointer;
+  display: none;
+}
+
+#check {
+  display: none;
+}
+
+@media (max-width: 999px) {
+  label.logo {
+    font-size: 32px;
+    padding: 0 10%;
+  }
+}
+
+@media (max-width: 860px) {
+  .checkbtn {
+    display: block;
+  }
+
+  label.logo {
+    font-size: 22px;
+    padding-left: 5%;
+  }
+
+  nav ul {
+    background: rgba(49, 49, 60, 0.99);
+    border: 1px solid rgba(78, 78, 87, 0.5);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    position: fixed;
+    border-radius: 30px;
+    padding: 0 8% 0 8%;
+    top: 120%;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 60px 0;
+    line-height: 30px;
+  }
+
+  nav ul li a {
+    font-size: 20px;
+    color: #c2bcbc;
+  }
+
+  nav a:hover,
+  nav a.active {
+    background: none;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  #check:checked ~ ul {
+    left: 0;
+  }
+
+  nav a::after {
+    display: none;
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header a:hover,
+.container a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 688px) {
+  .footer {
+    padding-bottom: 6%;
+  }
+}
+
+p {
+  color: #dcd9d9;
+}
+
+.container {
+  min-height: 100%;
+  position: relative;
+}
+
+.footer {
+  position: absolute;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 2%;
+  text-align: center;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1e1e29;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+}
+
+.button {
+  grid-area: 1 / 3 / 2 / 4;
+  text-align: center;
+  background-color: #7fb2a9;
+  margin: auto 25% auto auto;
+  font-size: 0.9rem;
+  padding: 12px 30px;
+  color: black;
+  background-color: #7fb2a9;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.header {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.header h1 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin: 170px 0 0 5%;
+  color: #fff;
+  font-weight: 800;
+  text-align: left;
+}
+
+.header p {
+  color: #dcd9d9;
+  margin-bottom: 200px;
+  text-align: left;
+  margin: 5% 5%;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header a:hover,
+.container a:hover {
+  text-decoration: underline;
+}
+
+#swal2-validation-message {
+  background: rgb(29, 28, 28);
+  color: #fff
+}
+
+.swal2-validation-message {
+  background: rgb(29, 28, 28);
+  color: #fff
+}

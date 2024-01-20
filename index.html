@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Anomaly Network</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../assets/img/favicon.png">
+  <link rel="stylesheet" href="../assets/template.css" />
+  <link rel="stylesheet" href="../assets/home.css" />
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <nav>
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn">
+      <img src="../assets/img/button.svg" />
+    </label>
+    <label class="logo">Anomaly Network</label>
+    <ul>
+      <li><a class="active" href="#">Home</a></li>
+      <li><a href="/perks">Rank Perks</a></li>
+      <li><a href="https://dsc.gg/anomaly-network/">Discord Server</a></li>
+    </ul>
+  </nav>
+
+  <div class="header">
+    <div class="text">
+      <h1 id="playerName">Guest Account</h1>
+      <p>
+        Selamat datang di website store Anomaly Network. Klik tombol di bawah jika ingin mengganti akun</p>
+      </p>
+      <div class="logout">
+        <a class="button" id="logout">Log out</a>
+      </div>
+    </div>
+    <div class="banner"></div>
+  </div>
+
+  <div class="container">
+  </div>
+
+  <footer class="footer">
+    <p id="cntl">&copy; 2023 Anomaly Network. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Check if the name is already saved in localStorage
+      let savedName = localStorage.getItem("userName");
+      const logout = document.querySelector("#logout");
+      const player = document.querySelector('#playerName');
+      const regexName = /^[a-zA-Z0-9_]{3,16}$/;
+
+      // Menambahkan event listener untuk tautan "Logout"
+      logout.addEventListener("click", async function (event) {
+        if (savedName) {
+          event.preventDefault(); // Menghentikan perilaku default dari tautan
+
+          player.textContent = "Guest Account";
+
+          // Menghapus data dari localStorage
+          localStorage.removeItem("userName");
+
+          // Menampilkan pesan atau melakukan tindakan lain jika diperlukan
+          await Swal.fire({
+            title: `Successfully Logouted`,
+            icon: "success",
+            background: "rgb(29, 28, 28)",
+            color: "#fff",
+          });
+        } else {
+          await Swal.fire({
+            title: `You are not logged in`,
+            icon: "error",
+            background: "rgb(29, 28, 28)",
+            color: "#fff",
+          });
+        }
+        await login();
+      });
+
+      async function login() {
+        let version = "";
+        const versionSelect = await Swal.fire({
+          title: 'Kamu bermain dimana?',
+          showDenyButton: true,
+          background: "rgb(29, 28, 28)",
+          color: "#fff",
+          confirmButtonText: 'Java',
+          denyButtonText: 'Bedrock',
+          denyButtonColor: "#7066e0",
+          showLoaderOnConfirm: true,
+          allowOutsideClick: false,
+        });
+
+        if (versionSelect.isDenied) version = ".";
+
+        Swal.fire({
+          title: "Masukkan Username",
+          input: "text",
+          background: "rgb(29, 28, 28)",
+          color: "#fff",
+          inputAttributes: {
+            autocapitalize: "off",
+          },
+          showCancelButton: false,
+          confirmButtonText: "Submit",
+          cancelButtonText: "Cancel",
+          showLoaderOnConfirm: true,
+          allowOutsideClick: false,
+          inputValidator: (value) => {
+            if (!value) return "Invalid username";
+            if (!regexName.test(value)) return "Invalid username";
+          },
+          preConfirm: (name) => {
+            // Save the entered name to localStorage
+            localStorage.setItem("userName", version + name);
+          }
+
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: `Hello, ${result.value}!`,
+              icon: "success",
+              background: "rgb(29, 28, 28)",
+              color: "#fff",
+            });
+
+            player.textContent = "Hi, " + version + result.value;
+          }
+        });
+      }
+
+      if (!savedName) {
+        login();
+      } if (savedName) player.textContent = "Hi, " + savedName;
+    });
+  </script>
+</body>
+
+</html>
