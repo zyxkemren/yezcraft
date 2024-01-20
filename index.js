@@ -4,10 +4,10 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
-app.use(express.static(__dirname + './'));
+app.use(express.static(__dirname + '/'));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + './index.html');
+    res.sendFile(__dirname + '/index.html');
 })
 
 app.use(bodyParser.json());
@@ -20,7 +20,7 @@ app.post('/webhook/trakteer', (req, res) => {
 });
 
 app.use((req, res, next) => {
-    res.status(404).sendFile(__dirname + './404.html');
+    res.status(404).sendFile(__dirname + '/404.html');
 });
 
 app.listen(port, () => {
