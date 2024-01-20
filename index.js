@@ -1,17 +1,18 @@
 const express = require("express");
-const path = require("path");
 
 const app = express();
 const port = 3000;
 
-// Middleware untuk menyajikan file statis
-app.use(express.static(path.join(__dirname, "assets")));
+app.use(express.static(__dirname + "/"));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(__dirname + "/index.html");
 });
 
-// Menangani permintaan POST ke /webhook/trakteer
+app.get("/tw", (req, res) => {
+  res.sendFile(__dirname + "/assets/template.css");
+});
+
 app.post("/webhook/trakteer", (req, res) => {
   console.log("Received POST request to /webhook/trakteer");
   console.log("Request Body:", req.body);
