@@ -1,18 +1,15 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+const path = require("path");
 
 const app = express();
 const port = 3000;
 
+// Middleware untuk menyajikan file statis
+app.use(express.static(path.join(__dirname, "assets")));
+
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(path.join(__dirname, "index.html"));
 });
-
-app.get("/about", (req, res) => {
-  res.send("This is my about route..... ");
-});
-
-app.use(bodyParser.json());
 
 // Menangani permintaan POST ke /webhook/trakteer
 app.post("/webhook/trakteer", (req, res) => {
