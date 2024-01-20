@@ -9,10 +9,6 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.get("/tw", (req, res) => {
-  res.sendFile(__dirname + "/assets/template.css");
-});
-
 app.post("/webhook/trakteer", (req, res) => {
   console.log("Received POST request to /webhook/trakteer");
   console.log("Request Body:", req.body);
