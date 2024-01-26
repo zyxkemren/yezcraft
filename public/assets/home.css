@@ -48,31 +48,70 @@
   background-color: #6b948ddb;
 }
 
+.coin-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-start;
+  flex-direction: row;
+  margin: -5% 10% 0;
+}
+
+.coin {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  width: 350px;
+  height: 380px;
+  margin: 16px 16px;
+  background-color: #2c2c3c;
+  border-radius: 25px;
+  text-align: center;
+  align-items: center;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.coin-img {
+  grid-area: 1 / 1 / 2 / 2;
+  max-width: 60%;
+  max-height: 60%;
+  width: auto;
+  height: auto;
+  margin: 0 auto 0;
+}
+
+.coin-price {
+  grid-area: 2 / 1 / 3 / 2;
+  background-color: #7fb2a9;
+  height: 90%;
+  margin: 0 3%;
+  border-radius: 0 0 25px 25px;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  text-align: center;
+}
+
+.coin-price p {
+  margin: 10px;
+  color: #010202;
+}
+.coin:hover {
+  transform: scale(1.05); /* Memperbesar elemen saat cursor diarahkan */
+}
+
+.coin:active {
+  transform: scale(0.95); /* Ukuran sedikit menyusut saat diklik */
+}
+
 /* Make them responsive */
 @media all and (min-width: 481px) and (max-width: 768px) {
-  .store,
-  .rules,
-  .sosmed {
-    display: grid;
-    grid-template-columns: 0.3fr 1.5fr;
-    grid-template-rows: repeat(2, 0.5fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-  }
-  .container .button {
-    grid-area: 2 / 1 / 3 / 3;
-    margin: 0 20px;
-    padding: 12px 0;
-  }
-  .content2 {
-    margin: 32px 0 8px 0;
-  }
-  .content2 h2 {
-    margin: 0;
-  }
-  .icon {
-    margin: 20px;
-  }
   .header h1 {
     font-size: 5rem;
   }

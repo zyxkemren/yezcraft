@@ -3,7 +3,6 @@
 * {
   padding: 0;
   margin: 0;
-  text-decoration: none;
   list-style: none;
   box-sizing: border-box;
 }
@@ -85,6 +84,16 @@ nav a:hover::after {
 
 #check {
   display: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px; /* Atur lebar scrollbar */
+  background-color: #1e1e29;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #282832;
+  border-radius: 50px;
 }
 
 @media (max-width: 999px) {
@@ -172,12 +181,12 @@ p {
 }
 
 .footer {
-  position: absolute;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 12px;
+  margin: 5% 0 0 0;
   bottom: 0;
   width: 100%;
-  padding-bottom: 2%;
+  padding-bottom: 25px;
   text-align: center;
 }
 
