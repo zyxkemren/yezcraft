@@ -98,8 +98,8 @@ nav a:hover::after {
 
 @media (max-width: 999px) {
   label.logo {
-    font-size: 32px;
-    padding: 0 10%;
+    font-size: 28px;
+    padding: 0 5%;
   }
 }
 
@@ -207,12 +207,12 @@ body {
 .button {
   grid-area: 1 / 3 / 2 / 4;
   text-align: center;
-  background-color: #7fb2a9;
+  background-color: #84c9eb;
   margin: auto 25% auto auto;
   font-size: 0.9rem;
   padding: 12px 30px;
   color: black;
-  background-color: #7fb2a9;
+  background-color: #84c9eb;
   cursor: pointer;
   border-radius: 50px;
 }
