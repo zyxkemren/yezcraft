@@ -75,13 +75,12 @@
   cursor: pointer;
 }
 
-.coin-img {
-  grid-area: 1 / 1 / 2 / 2;
-  max-width: 60%;
-  max-height: 60%;
-  width: auto;
-  height: auto;
-  margin: 0 auto 0;
+.coin p {
+  font-size:  1.5rem;
+}
+
+.coin p b {
+  font-size:  5rem;
 }
 
 .coin-price {
