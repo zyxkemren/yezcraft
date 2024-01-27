@@ -103,11 +103,13 @@
   color: #010202;
 }
 .coin:hover {
-  transform: scale(1.05); /* Memperbesar elemen saat cursor diarahkan */
+  transform: scale(1.05); 
+  transition: 0.3s ease;
 }
 
 .coin:active {
   transform: scale(0.95); /* Ukuran sedikit menyusut saat diklik */
+  transition: 0.2s ease;
 }
 
 /* Make them responsive */
