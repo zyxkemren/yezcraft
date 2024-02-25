@@ -111,9 +111,12 @@ if (void 0 === trbtnOverlay)
             .replace("[text]", a.text)
             .replace("[src]", a.src)
             .replace("[url]", a.url)
-            .replace("[size]", a.size)
-            .replace("[pos]", a.pos)),
+            .replace("[size]", a.size)),
             c.parentNode.insertBefore(d.firstChild, c);
+            
         },
+        
       };
     })();
+
+

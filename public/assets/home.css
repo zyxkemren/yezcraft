@@ -110,7 +110,7 @@
 
 .coin:active {
   transform: scale(0.95); /* Ukuran sedikit menyusut saat diklik */
-  transition: 0.2s ease;
+  transition: 0.1s ease;
 }
 
 /* Make them responsive */
