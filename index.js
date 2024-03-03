@@ -12,6 +12,7 @@ app.get("/", (req, res) => {
 app.get("/perks", (req, res) => {
   res.sendFile(__dirname + "/perks/index.html");
 })
+
 app.post("/webhook/trakteer", (req, res) => {
   console.log("Received POST request to /webhook/trakteer");
   console.log("Request Body:", req.body);

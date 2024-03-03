@@ -1,0 +1,31 @@
+.main {
+  color: #fff;
+  background-color: #1e1e29;
+  margin: 20vh auto 0 auto;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.main h1 {
+  font-size: 20vh;
+  margin: 20px 0 0 0;
+}
+
+.main p {
+  font-size: 2vh;
+  margin: 0 10%;
+}
+
+.navigation-button {
+  display: flex;
+  justify-content: center;
+  margin: 3vh 0;
+}
+
+.button {
+  margin: 0 1vw;
+}
+
+.button:hover {
+  background-color: #6b948ddb;
+}
