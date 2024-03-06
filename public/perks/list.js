@@ -4,18 +4,18 @@ const popupContainers = document.querySelectorAll(".popup-container");
 
 // Fungsi untuk menutup semua popup
 function closeAllPopups() {
-  popupContainers.forEach(container => {
+  popupContainers.forEach((container) => {
     container.style.display = "none";
   });
 }
 
 // Menambahkan event listener untuk tombol close pada setiap popup
-closePopupBtns.forEach(btn => {
+closePopupBtns.forEach((btn) => {
   btn.addEventListener("click", closeAllPopups);
 });
 
 // Menambahkan event listener untuk setiap tombol rank
-document.querySelectorAll(".rank").forEach(rank => {
+document.querySelectorAll(".rank").forEach((rank) => {
   rank.addEventListener("click", function () {
     const overlayId = rank.dataset.overlay; // Mendapatkan ID overlay dari atribut data
     const overlay = document.getElementById(overlayId);

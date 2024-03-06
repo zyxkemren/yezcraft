@@ -16,7 +16,8 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <meta property="og:title" content="Anomaly Network">
   <meta property="og:description" content="Sebuah server Minecraft Indonesia modern dengan tema Survival MIX.">
-  <meta property="og:image" content="https://media.discordapp.net/attachments/1135145482797207622/1213682148972826705/favicon.png">
+  <meta property="og:image"
+    content="https://media.discordapp.net/attachments/1135145482797207622/1213682148972826705/favicon.png">
   <meta property="og:url" content="https://store.anomaly.my.id/">
 </head>
 
@@ -47,51 +48,55 @@
     <div class="banner"></div>
   </div>
 
+  <iframe id="trIframe"
+      src="https://trakteer.id/zyxkemren/tip/embed/modal">
+  </iframe>
+
   <div class="container">
     <div class="coin-list">
-      <div class="coin">
+      <div class="coin" id="anomalyCoins1">
         <p><b>10 ✪</b><br>Anomaly Coins</p>
         <div class="coin-price">
           <p>10.000 IDR</p>
         </div>
       </div>
-      <div class="coin">
+      <div class="coin" id="anomalyCoins2">
         <p><b>22 ✪</b><br>Anomaly Coins</p>
         <div class="coin-price">
           <p><s>22.000 IDR</s><br>20.000 IDR</p>
         </div>
       </div>
-      <div class="coin">
+      <div class="coin" id="anomalyCoins3">
         <p><b>56 ✪</b><br>Anomaly Coins</p>
         <div class="coin-price">
           <p><s>56.000 IDR</s><br>50.000 IDR</p>
         </div>
       </div>
-      <div class="coin">
+      <div class="coin" id="anomalyCoins4">
         <p><b>72 ✪</b><br>Anomaly Coins</p>
         <div class="coin-price">
           <p><s>72.000 IDR</s><br>60.000 IDR</p>
         </div>
       </div>
-      <div class="coin">
+      <div class="coin" id="anomalyCoins5">
         <p><b>100 ✪</b><br>Anomaly Coins</p>
         <div class="coin-price">
           <p><s>100.000 IDR</s><br>75.000 IDR</p>
         </div>
       </div>
-      <div class="coin">
+      <div class="coin" id="anomalyCoins6">
         <p><b>130 ✪</b><br>Anomaly Coins</p>
         <div class="coin-price">
           <p><s>130.000 IDR</s><br>100.000 IDR</p>
         </div>
       </div>
-      <div class="coin">
+      <div class="coin" id="anomalyCoins7">
         <p><b>225 ✪</b><br>Anomaly Coins</p>
         <div class="coin-price">
           <p><s>225.000 IDR</s><br>150.000 IDR</p>
         </div>
       </div>
-      <div class="coin">
+      <div class="coin" id="anomalyCoins8">
         <p><b>300 ✪</b><br>Anomaly Coins</p>
         <div class="coin-price">
           <p><s>300.000 IDR</s><br>200.000 IDR</p>
@@ -104,103 +109,7 @@
     <p id="cntl">&copy; 2023 Anomaly Network. All rights reserved.</p>
   </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Check if the name is already saved in localStorage
-      let savedName = localStorage.getItem("userName");
-      const logout = document.querySelector("#logout");
-      const player = document.querySelector('#playerName');
-      const regexName = /^[a-zA-Z0-9_]{3,16}$/;
-
-      async function pay(a) {
-        window.location.href = `https://trakteer.id/zyxkemren/tip/embed/modal?quantity=${a}&supporter_message=gg ga?&display_name=${savedName}&step=3&payment_method=qris&`;
-      };
-
-      // Menambahkan event listener untuk tautan "Logout"
-      logout.addEventListener("click", async function (event) {
-        if (savedName) {
-          event.preventDefault(); // Menghentikan perilaku default dari tautan
-
-          player.textContent = "Guest Account";
-
-          // Menghapus data dari localStorage
-          localStorage.removeItem("userName");
-
-          // Menampilkan pesan atau melakukan tindakan lain jika diperlukan
-          await Swal.fire({
-            title: `Successfully Logouted`,
-            icon: "success",
-            background: "rgb(29, 28, 28)",
-            color: "#fff",
-          });
-        } else {
-          await Swal.fire({
-            title: `You are not logged in`,
-            icon: "error",
-            background: "rgb(29, 28, 28)",
-            color: "#fff",
-          });
-        }
-        await login();
-      });
-
-      async function login() {
-        let version = "";
-        const versionSelect = await Swal.fire({
-          title: 'Kamu bermain dimana?',
-          showDenyButton: true,
-          background: "rgb(29, 28, 28)",
-          color: "#fff",
-          confirmButtonText: 'Java',
-          denyButtonText: 'Bedrock',
-          denyButtonColor: "#7066e0",
-          showLoaderOnConfirm: true,
-          allowOutsideClick: false,
-        });
-
-        if (versionSelect.isDenied) version = ".";
-
-        Swal.fire({
-          title: "Masukkan Username",
-          input: "text",
-          background: "rgb(29, 28, 28)",
-          color: "#fff",
-          inputAttributes: {
-            autocapitalize: "off",
-          },
-          showCancelButton: false,
-          confirmButtonText: "Submit",
-          cancelButtonText: "Cancel",
-          showLoaderOnConfirm: true,
-          allowOutsideClick: false,
-          inputValidator: (value) => {
-            if (!value) return "Invalid username";
-            if (!regexName.test(value)) return "Invalid username";
-          },
-          preConfirm: (name) => {
-            // Save the entered name to localStorage
-            localStorage.setItem("userName", version + name);
-          }
-
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Swal.fire({
-              title: `Hello, ${result.value}!`,
-              icon: "success",
-              background: "rgb(29, 28, 28)",
-              color: "#fff",
-            });
-
-            player.textContent = "Hi, " + version + result.value;
-          }
-        });
-      }
-
-      if (!savedName) {
-        login();
-      } if (savedName) player.textContent = "Hi, " + savedName;
-    });
-  </script>
+  <script src="./home.js"></script>
 </body>
 
 </html>

@@ -77,12 +77,12 @@
 }
 
 .coin p {
-  font-size:  1.5rem;
+  font-size: 1.5rem;
   color: #fff;
 }
 
 .coin p b {
-  font-size:  5rem;
+  font-size: 5rem;
 }
 
 .coin-price {
@@ -94,7 +94,7 @@
   font-size: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
   text-align: center;
 }
@@ -104,13 +104,25 @@
   color: #010202;
 }
 .coin:hover {
-  transform: scale(1.05); 
+  transform: scale(1.05);
   transition: 0.3s ease;
 }
 
 .coin:active {
-  transform: scale(0.95); /* Ukuran sedikit menyusut saat diklik */
+  transform: scale(0.95);
   transition: 0.1s ease;
+}
+
+iframe {
+  z-index: 999;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  border: none;
+  backdrop-filter: blur(5px);
+  display: none;
 }
 
 /* Make them responsive */
