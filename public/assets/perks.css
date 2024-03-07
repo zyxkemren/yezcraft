@@ -87,7 +87,7 @@
 
 .popup-container {
   display: none;
-  position: fixed;
+  position:fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -96,6 +96,7 @@
   backdrop-filter: blur(8px);
   z-index: 2;
   font-family: 'Montserrat', sans-serif;
+  overflow-y: auto;
 }
 
 .vip, .vip2, .mvp, .mvp2, .supreme {
