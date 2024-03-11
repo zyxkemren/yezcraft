@@ -106,11 +106,11 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (index === 2) {
         quantity = 49;
       } else if (index === 3) {
-        quantity = 59;
-      } else if (index === 4) {
         quantity = 75;
-      } else if (index === 5) {
+      } else if (index === 4) {
         quantity = 100;
+      } else if (index === 5) {
+        quantity = 119;
       } else if (index === 6) {
         quantity = 149;
       } else if (index === 7) {
