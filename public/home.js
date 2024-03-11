@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       } else {
         iframe.style.display = "block";
-        iframe.src = `https://trakteer.id/zyxkemren/tip/embed/modal?step=3&supporter_message=Jangan ubah apapun!&quantity=${quantity}&payment_method=qris&display_name=${savedName}&`;
+        iframe.src = `https://trakteer.id/zyxkemren/tip/embed/modal?step=2&supporter_message=Ubah emailnya! emailnya bebas&quantity=${quantity}&payment_method=qris&display_name=${savedName}&email=play@anomaly.network&`;
         iframe.contentWindow.postMessage({ type: "embed.openModal" }, `https://trakteer.id/zyxkemren/tip/`);
       }
     });
