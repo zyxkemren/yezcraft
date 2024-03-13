@@ -104,17 +104,17 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (index === 1) {
         quantity = 20;
       } else if (index === 2) {
-        quantity = 49;
+        quantity = 50;
       } else if (index === 3) {
-        quantity = 75;
+        quantity = 80;
       } else if (index === 4) {
         quantity = 100;
       } else if (index === 5) {
-        quantity = 119;
+        quantity = 140;
       } else if (index === 6) {
-        quantity = 149;
+        quantity = 200;
       } else if (index === 7) {
-        quantity = 199;
+        quantity = 300;
       }
   
       if (version == ".") {
