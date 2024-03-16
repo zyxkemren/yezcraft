@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
   port: process.env.DB_PORT,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAMA,
+  database: 's44484_saldo',
 });
 
 const processPayment = async (req, res) => {
