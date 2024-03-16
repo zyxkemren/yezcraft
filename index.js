@@ -1,12 +1,17 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 
 const app = express();
 const port = 3000;
 
 const { processPayment } = require("./server/processPayment");
 
+// Middleware
+app.use(bodyParser.json());
+
 app.use(express.static(__dirname + "/public/"));
 
+// Router
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });

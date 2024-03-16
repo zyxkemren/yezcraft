@@ -16,6 +16,8 @@ const connection = mysql.createConnection({
 const processPayment = async (req, res) => {
   const { supporter_name, quantity, price } = req.body;
 
+  const coins = quantity * 1000;
+
   const timestamp = await getTime(7);
 
   const playerRegex = /^[a-zA-Z0-9_]{3,16}$/;
@@ -24,16 +26,18 @@ const processPayment = async (req, res) => {
 
   if (playerRegex.test(supporter_name)) avatar = `https://cravatar.eu/avatar/${supporter_name}/64.png`;
 
-  const webhookUrl = "https://discord.com/api/webhooks/1218403223719772222/SfL-QSgbLLFE3eMAGK0AsVKjIJmSFHt9RtDROcHQdIfbeZCzBCW-tHsplIpU-Zy4t37e";
+  const webhookUrl =
+    "https://discord.com/api/webhooks/1218403223719772222/SfL-QSgbLLFE3eMAGK0AsVKjIJmSFHt9RtDROcHQdIfbeZCzBCW-tHsplIpU-Zy4t37e";
 
   const embedData = {
     embeds: [
       {
         title: `${supporter_name} berdonasi!`,
-        description: `${msgData}\n\nhttps://store.anomaly.my.id/`,
+        description: `Saldo: **${coins.toLocaleString("id-ID")}**\nHarga: **Rp ${price.toLocaleString(
+          "id-ID"
+        )}**\n\nTopup saldo di website\nhttps://store.yezcraft.net/`,
         color: 0x2c2f33,
         footer: { text: timestamp.toString() },
-        image: { url: banner },
         timestamp: new Date().toISOString(),
         thumbnail: {
           url: avatar,

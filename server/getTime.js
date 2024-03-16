@@ -12,7 +12,7 @@ async function getTime(t) {
   
     date.setHours(date.getHours() + t); // set timezone
   
-    console.log(formattedDateTime);
+    return(formattedDateTime);
   }
   
   module.exports = getTime;
