@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/topup", (req, res, next) => {
-  const expectedToken = 'trhook-c93eQcNwDv2P3BQp8LwH6pHU'; 
+  const expectedToken = 'trhook-p3cC1k6wdPUzh98ivdEDwpDp'; 
   const webhookToken = req.headers['x-webhook-token'];
 
   if (webhookToken !== expectedToken) {
