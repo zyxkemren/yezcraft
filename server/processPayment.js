@@ -24,8 +24,7 @@ const processPayment = async (req, res) => {
 
   if (playerRegex.test(supporter_name)) avatar = `https://cravatar.eu/avatar/${supporter_name}/64.png`;
 
-  const webhookUrl =
-    "https://discord.com/api/webhooks/xxxxxxxxxxx/xxxxxxxxxxxx";
+  const webhookUrl = "https://discord.com/api/webhooks/xxxxxxxxxxx/xxxxxxxxxxxx";
 
   const embedData = {
     embeds: [
@@ -60,17 +59,22 @@ const processPayment = async (req, res) => {
   const uuid = await getUUID(supporter_name);
 
   // Eksekusi query
-  if (isCoins != 1 && playerRegex.test(supporter_name)) {
-    connection.query(query, [coins, uuid], (error, results) => {
-      if (error) {
-        console.error("Error adding points:", error);
-        res.status(400).send(error);
-      } else {
-        console.log(`Successfully added ${coins} points to ${uuid} (${supporter_name})`);
-        res.status(200).send("Successfull! (1)");
-      }
-    });
-  } else res.status(200).send("Successfull! (2)");
+  if (uuid != 1) {
+    if (playerRegex.test(supporter_name)) {
+      connection.query(query, [coins, uuid], (error, results) => {
+        if (error) {
+          console.error("Error adding points:", error);
+          res.status(400).send(error);
+        } else {
+          console.log(`Successfully added ${coins} points to ${uuid} (${supporter_name})`);
+          res.status(200).send("Successfull sent discord webhook and add points to player");
+        }
+      });
+    }
+  } else
+    res
+      .status(200)
+      .send("Successfull sent discord webhook, but didn't added points to player. (Unknown UUID or Username)");
 };
 
 module.exports = { addPointsToUUID };
