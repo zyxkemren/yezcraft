@@ -13,10 +13,15 @@ app.get("/perks", (req, res) => {
   res.sendFile(__dirname + "/perks/index.html");
 })
 
-app.post("/webhook/trakteer", (req, res) => {
-  console.log("Received POST request to /webhook/trakteer");
-  console.log("Request Body:", req.body);
-  res.status(200).send({ status: "Success" });
+app.post("/topup", (req, res, next) => {
+  const expectedToken = 'trhook-NOxaHgZedQ1RQ2HUUqklBjEa'; 
+  const webhookToken = req.headers['x-webhook-token'];
+
+  if (webhookToken !== expectedToken) {
+      return res.status(403).json({ error: 'Forbidden' });
+  }
+
+  addPointsToUUID(req, res, next);
 });
 
 app.use((req, res, next) => {

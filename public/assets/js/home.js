@@ -5,10 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const player = document.querySelector("#playerName");
   const regexName = /^[a-zA-Z0-9_]{3,16}$/;
 
-  async function pay(a) {
-    window.location.href = `https://trakteer.id/zyxkemren/tip/embed/modal?quantity=${a}&supporter_message=gg ga?&display_name=${savedName}&step=3&payment_method=qris&`;
-  }
-
   // Menambahkan event listener untuk tautan "Logout"
   logout.addEventListener("click", async function (event) {
     if (savedName) {
@@ -95,18 +91,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const open = document.querySelectorAll(".coin");
   const iframe = document.querySelector("iframe");
 
-  open.forEach(function(coin, index) {
+  open.forEach(function (coin, index) {
     coin.addEventListener("click", async function () {
-      let version = localStorage.getItem("version");
+      let savedName = localStorage.getItem("userName");
       let quantity;
       if (index === 0) {
-        quantity = 10;
+        quantity = 5;
       } else if (index === 1) {
-        quantity = 20;
+        quantity = 10;
       } else if (index === 2) {
-        quantity = 50;
+        quantity = 20;
       } else if (index === 3) {
-        quantity = 80;
+        quantity = 50;
       } else if (index === 4) {
         quantity = 100;
       } else if (index === 5) {
@@ -116,20 +112,10 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (index === 7) {
         quantity = 300;
       }
-  
-      if (version == ".") {
-        await Swal.fire({
-          title: 'ERROR',
-          text: "Maaf, untuk sekarang player Bedrock tidak bisa membeli di website ini! Jika ingin membeli, hubungin admin di discord!",
-          background: "rgb(29, 28, 28)",
-          color: "#fff",
-          showLoaderOnConfirm: true,
-        });
-      } else {
-        iframe.style.display = "block";
-        iframe.src = `https://trakteer.id/zyxkemren/tip/embed/modal?step=2&supporter_message=Ubah emailnya! emailnya bebas&quantity=${quantity}&payment_method=qris&display_name=${savedName}&email=play@anomaly.network&`;
-        iframe.contentWindow.postMessage({ type: "embed.openModal" }, `https://trakteer.id/zyxkemren/tip/`);
-      }
+
+      iframe.style.display = "block";
+      iframe.src = `https://trakteer.id/yezcraft/tip/embed/modal?step=2&supporter_message=Masukkan email! emailnya bebas&quantity=${quantity}&payment_method=qris&display_name=${savedName}&email=play@anomaly.network&`;
+      iframe.contentWindow.postMessage({ type: "embed.openModal" }, `https://trakteer.id/zyxkemren/tip/`);
     });
   });
   window.addEventListener("message", function (event) {
