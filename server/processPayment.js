@@ -24,7 +24,7 @@ const processPayment = async (req, res) => {
 
   if (playerRegex.test(supporter_name)) avatar = `https://cravatar.eu/avatar/${supporter_name}/64.png`;
 
-  const webhookUrl = "https://discord.com/api/webhooks/xxxxxxxxxxx/xxxxxxxxxxxx";
+  const webhookUrl = "https://discord.com/api/webhooks/1218403223719772222/SfL-QSgbLLFE3eMAGK0AsVKjIJmSFHt9RtDROcHQdIfbeZCzBCW-tHsplIpU-Zy4t37e";
 
   const embedData = {
     embeds: [
