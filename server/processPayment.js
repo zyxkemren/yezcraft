@@ -77,4 +77,4 @@ const processPayment = async (req, res) => {
       .send("Successfull sent discord webhook, but didn't added points to player. (Unknown UUID or Username)");
 };
 
-module.exports = { addPointsToUUID };
+module.exports = { processPayment };
